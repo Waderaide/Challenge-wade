@@ -1,0 +1,130 @@
+<h2>Orders</h2>
+<div>
+    <div class="order-table">
+    <table class="table-orders"  >
+    <div>
+    <tr>
+        <th>Order ID</th>
+        <th>Customer ID</th>
+        <th>Product ID</th>
+        <th>Order Date</th>
+        <th>Quantity</th>
+        <th>ShipDate</th>
+        <th>Ship Mode</th>
+    </tr>
+    <tr *ngFor="let dataItem of OrdersList">        
+        
+        <td (click)="editClick(dataItem)" name="orderID" >{{dataItem.orderID}}</td>
+        <td (click)="editClick(dataItem)" name="custID" >{{dataItem.custID}}</td>
+        <td (click)="editClick(dataItem)" name="prodID">{{dataItem.prodID}}</td>
+        <td (click)="editClick(dataItem)" name="orderDate">{{dataItem.orderDate}}</td>
+        <td (click)="editClick(dataItem)" name="quantity">{{dataItem.quantity}}</td>
+        <td (click)="editClick(dataItem)" name="shipDate">{{dataItem.shipDate}}</td>
+        <td (click)="editClick(dataItem)" name="shipMode">{{dataItem.shipMode}}</td>
+        <td><button (click)="deleteClick(dataItem)">Delete</button></td>
+    
+        
+    </tr>
+</div>
+  
+  
+</table>
+</div>
+
+
+
+<div class="add-order">
+    <h2>Add Order</h2>
+    <div class="order-form">
+        <form>          
+          <div class="form-group">
+            <label for="">Select Customer</label>
+            <select  #select (change)="onSelection(select.value)" name="selection" [(ngModel)]="custID">
+            <option *ngFor="let c of CustomerList" [value]="c.custID">{{c.fullName}}</option>
+            </select>
+            </div>
+          <div class="form-group form-group-inline">
+            <div class="form-group">
+                <label for="">Select Product</label>
+                <select  #selection (change)="onSelectionProduct(selection.value)" name="selection-prod" [(ngModel)]="prodID">
+                <option *ngFor="let p of ProductsList" [value]="p.prodID">{{p.description_}}</option>
+                </select>
+                </div> 
+            <div>
+              <label for="">Order Date</label>
+              <input type="text" name="Order Date" [(ngModel)]="orderDate">
+            </div>  
+            <div>
+                <label for="">Quantity</label>
+                <input type="text" name="Quantity" [(ngModel)]="quantity">
+            </div>
+            <div>
+                <label for="">Ship Date</label>
+                <input type="text" name="Ship Date" [(ngModel)]="shipDate">
+            </div>
+            <div>
+                <label for="">Ship Mode</label>
+                <input  type="text" name="Ship Mode" [(ngModel)]="shipMode">
+            </div>
+          
+            </div>
+            <div class="form-group">
+              
+              <button (click)="createOrder()"  class="btn btn-primary" type="submit">
+                Add
+            </button>
+            </div>
+        </form>
+
+</div>
+
+
+<hr>
+<h2>Update Order (Click on an order to update)</h2>
+<div class="update-order">
+    <div class="order-form">
+        <form>          
+          
+          
+            <div class="form-group form-group-inline">
+            <div>
+                <label for="">Order ID</label>
+                <input value="{{orderID}}" type="text" name="Order ID" [(ngModel)]="order.orderID">
+            </div>
+            <div class="form-group">
+                <label for="">Select Product</label>
+                <select  #selection (change)="onSelectionProduct(selection.value)" name="selection-prod" [(ngModel)]="order.prodID">
+                <option *ngFor="let p of ProductsList" [value]="p.prodID">{{p.description_}}</option>
+                </select>
+                </div>
+            <div>
+              <label for="">Order Date</label>
+              <input value="{{order.orderDate}}" type="text" name="Order Date" [(ngModel)]="order.orderDate">
+            </div>  
+            <div>
+                <label for="">Quantity</label>
+                <input value="{{order.quantity}" type="text" name="Quantity" [(ngModel)]="order.quantity">
+            </div>
+            <div>
+                <label for="">Ship Date</label>
+                <input value="{{order.shipDate}}" type="text" name="Ship Date" [(ngModel)]="order.shipDate">
+            </div>
+            <div>
+                <label for="">Ship Mode</label>
+                <input value="{{order.shipMode}}" type="text" name="Ship Mode" [(ngModel)]="order.shipMode">
+            </div>
+          
+            
+            <div class="form-group">
+              
+              <button (click)="updateOrder(order)"  class="btn btn-primary" type="submit">
+                update
+            </button>
+            </div>
+            </div>
+
+        
+        </form>
+
+</div>
+</div>

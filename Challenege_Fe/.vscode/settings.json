@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3e4b18b9-40d8-4b4e-9b75-99d5370e2d49/resourceGroups/appsvc_linux_centralus/subscriptions/3e4b18b9-40d8-4b4e-9b75-99d5370e2d49/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/diploma-challenge-wade",
+    "appService.deploySubpath": "dist"
+}

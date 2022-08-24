@@ -1,0 +1,24 @@
+.table-orders {
+    width: 100%;
+}
+.table-orders, th,td {
+    border:1px solid black;
+    
+}
+.order-table {
+    border:3px solid black;
+    width: 40%;
+    float: left;
+}
+.add-order {
+    width: 40%;
+    float: right;
+    border:3px solid black;
+    margin-right: 100px;
+}
+.update-order {
+    margin-top: 40px;
+}
+.add-order {
+    
+}
